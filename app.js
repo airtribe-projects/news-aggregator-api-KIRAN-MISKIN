@@ -1,17 +1,16 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const dotenv = require('dotenv')
+dotenv.config();
+const {authentication} = require('./middleware/auth');
+const usersRouter = require('./router/usersRouter');
+const { news } = require('./controller/news');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(port, (err) => {
-    if (err) {
-        return console.log('Something bad happened', err);
-    }
-    console.log(`Server is listening on ${port}`);
-});
-
+app.use('/users', usersRouter)
+app.get('/news', authentication, news)
 
 
 module.exports = app;
