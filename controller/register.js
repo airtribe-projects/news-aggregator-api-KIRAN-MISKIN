@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 
 const registerUser = async (req, res) => {
   try {
-    await requestBodyValidation(req.body, "register");
+  await requestBodyValidation(req.body, "register");
     const { name, email, password } = req.body;
     const preferences1 = req.body.preferences
     let preferences = [];

@@ -20,3 +20,12 @@ model users {
   password String @unique
   preferences Json?
 }
+
+model news {
+  id String @id @unique
+  title String
+  description String
+  url String?
+  read Json?
+  favorite Json?
+}

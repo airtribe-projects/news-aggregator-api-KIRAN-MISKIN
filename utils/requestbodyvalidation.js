@@ -1,6 +1,12 @@
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient();
 
+ function isValidEmail(email) {
+    console.log("Inside isvaliEmail fucntion")
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
 async function loginBodyValidation(body) {
     if (Object.keys(body).length === 0) {
         throw new Error("Request Body Missing")
@@ -59,6 +65,10 @@ async function registerBodyValidation(body) {
 
     if (!email) {
         throw new Error("Email is required")
+    }
+
+    if(!isValidEmail(email)){
+        throw new Error("Invalid email format")
     }
 
     if (!password) {
