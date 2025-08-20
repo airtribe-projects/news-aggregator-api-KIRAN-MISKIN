@@ -5,6 +5,7 @@ dotenv.config();
 const usersRouter = require('./router/usersRouter');
 const newsRouter = require('./router/newsRouter')
 const requestLogger = require('./logger/requestLogger')
+const {clearCache} = require('./cache/cache')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -8,7 +8,7 @@ function sendResponse(res, statusCode, messageOrData) {
     // If it's an error
     return res.status(statusCode).json({
       status: "Error",
-      Error_message: messageOrData
+      errorMessage : messageOrData
     });
   }
 }

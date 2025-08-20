@@ -17,19 +17,19 @@ function getFromCache(id) {
   return null;
 }
 
-function setInCache(id, data) {
-  const now = Date.now();
-  // remove old if exists
-  newsCache = newsCache.filter(n => n.id !== id);
-  newsCache.push({ id, data, timestamp: now });
-}
+// function setInCache(id, data) {
+//   const now = Date.now();
+//   // remove old if exists
+//   newsCache = newsCache.filter(n => n.id !== id);
+//   newsCache.push({ id, data, timestamp: now });
+// }
 
-function getAllCache() {
-  return newsCache.map(n => n.data);
-}
+// function getAllCache() {
+//   return newsCache.map(n => n.data);
+// }
 
 function clearCache() {
   newsCache = [];
 }
 
-module.exports = { getFromCache, setInCache, getAllCache, clearCache };
+module.exports = { getFromCache, clearCache };

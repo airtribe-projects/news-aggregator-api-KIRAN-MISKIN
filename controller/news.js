@@ -3,7 +3,6 @@ const { PrismaClient } = require('@prisma/client');
 const { sendResponse } = require('../utils/responseHandler');
 const prisma = new PrismaClient();
 const { checkNewsIdfn } = require('../utils/newsDboperations');
-const { response } = require('express');
 
 const news = async (req, res) => {
   try {
@@ -23,7 +22,7 @@ const news = async (req, res) => {
         search: category
       }
     });
-    const news = response.data.data.map((x) => {
+    const formattedNews = response.data.data.map((x) => {
       return {
         id: x.uuid,
         title: x.title,
@@ -31,7 +30,7 @@ const news = async (req, res) => {
         url: x.url
       }
     })
-    const result = { news }
+    const result = { news: formattedNews }
     sendResponse(res, 200, result)
   } catch (err) {
     console.log("Error At news.js: ", err)
@@ -42,17 +41,19 @@ const news = async (req, res) => {
 const newsMarkRead = async (req, res) => {
   try {
     const { id } = req.params
-    await checkNewsIdfn(id, req.user, "read").then(result => sendResponse(res, 200, result))
+    const result = await checkNewsIdfn(id, req.user, "read")
+    return sendResponse(res, 200, result)
   } catch (err) {
     console.log("Error at newsMarkRead at news function", err);
     sendResponse(res, 400, "News API Error. Please try again after some time")
   }
 }
 
-const newsMarkfavorite = async (req, res) => {
+const newsMarkFavorite = async (req, res) => {
   try {
     const { id } = req.params
-    await checkNewsIdfn(id, req.user, "favorite").then(result => sendResponse(res, 200, result))
+    const result = await checkNewsIdfn(id, req.user, "read")
+    return sendResponse(res, 200, result)
   } catch (err) {
     console.log("Error at newsMarkFavorite at news function", err);
     sendResponse(res, 400, "News API Error. Please try again after some time")
@@ -71,9 +72,9 @@ const newsGetRead = async (req, res) => {
 
     let email = req.user.email
 
-    const readNews1 = await prisma.news.findMany({})
+    const allNewsItems = await prisma.news.findMany({})
 
-    const readNews = readNews1.filter(items=>items.read !== null)
+    const readNews = allNewsItems.filter(items=>items.read !== null)
     if(readNews.length === 0){
       return sendResponse(res,404,"No Data Found")
     }
@@ -114,8 +115,8 @@ const newsGetFavorite = async (req, res) => {
 
     let email = req.user.email
 
-    const readNews1 = await prisma.news.findMany({})
-    const readNews = readNews1.filter(items=>items.favorite !== null)
+    const allNewsItems = await prisma.news.findMany({})
+    const readNews = allNewsItems.filter(items=>items.favorite !== null)
     if(readNews.length === 0){
       return sendResponse(res,404,"No Data Found")
     }
@@ -178,4 +179,4 @@ const newSearch = async (req, res) => {
   }
 }
 
-module.exports = { news, newsGetFavorite, newsGetRead, newsMarkRead, newsMarkfavorite, newSearch }
+module.exports = { news, newsGetFavorite, newsGetRead, newsMarkRead, newsMarkFavorite, newSearch }

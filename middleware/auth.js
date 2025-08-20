@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const { sendResponse } = require('../utils/responseHandler');
-const SECRET_KEY = process.env.JWT_SECRET || 'kiran_kumar_miskn_special';
+const SECRET_KEY = process.env.JWT_SECRET;
 
 
 const authentication = (req, res,next) => {

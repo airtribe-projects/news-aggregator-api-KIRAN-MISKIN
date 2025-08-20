@@ -21,22 +21,22 @@ const putPreference = async (req, res) => {
         if (!preferences || (!Array.isArray(preferences) && typeof preferences !== 'string')) {
             return sendResponse(res, 400, 'Preferences should be string or array.')
         }
-        let lastestPreferences;
+        let latestPreferences;
 
         const userDetails = await prisma.users.findUnique({
             where: { email: req.user.email },
             select: { preferences: true }
         })
         if (typeof (preferences) === 'string') {
-            lastestPreferences = userDetails.preferences
-            lastestPreferences.push(preferences)
+            latestPreferences  = userDetails.preferences
+            latestPreferences .push(preferences)
 
         } else {
-            lastestPreferences = [...new Set([...userDetails.preferences, ...preferences])]
+            latestPreferences  = [...new Set([...userDetails.preferences, ...preferences])]
         }
         const updatedUser = await prisma.users.update({
             where: { email: req.user.email },
-            data: { preferences: lastestPreferences }
+            data: { preferences: latestPreferences }
         });
         let result = {
             message: "Preferences inserted successfully",

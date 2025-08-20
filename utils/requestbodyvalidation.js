@@ -2,7 +2,6 @@ const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient();
 
  function isValidEmail(email) {
-    console.log("Inside isvaliEmail fucntion")
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
@@ -17,7 +16,7 @@ async function loginBodyValidation(body) {
 
     const invalidbody = bodyKeys.filter(key => !allowedBody.includes(key));
     if (invalidbody.length > 0) {
-        throw new Error(`Invalid body parameter(s): ${invalidbody.join(', ')}. Only 'email'and 'password' are allowed.`);
+        throw new Error(`Invalid body parameter(s): ${invalidbody.join(', ')}. Only 'email' and 'password' are allowed.`);
     }
 
     const { email, password } = body

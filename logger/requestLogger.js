@@ -2,11 +2,8 @@ const logger = require('./logger');
 
 const requestLogger = (req, res, next) => {
   const start = Date.now();
-
-  // Log request
   logger.info(`Incoming Request: ${req.method} ${req.originalUrl}`);
 
-  // Capture response finish
   res.on('finish', () => {
     const duration = Date.now() - start;
     const status = res.statusCode;
