@@ -7,7 +7,7 @@ const authentication = (req, res,next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN
   if (!token) {
-    return sendResponse(res,401,'Access denied. No token provided.')
+    return sendResponse(res,process.env.STATUS_401,'Access denied. No token provided.')
   }
 
   try {
@@ -16,7 +16,7 @@ const authentication = (req, res,next) => {
     next();
   } catch (error) {
     console.error('Token verification failed:', error);
-    return sendResponse(res,401,'Invalid or expired token.')
+    return sendResponse(res,process.env.STATUS_401,'Invalid or expired token.')
   }
 };
 

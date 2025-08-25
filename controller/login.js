@@ -20,13 +20,13 @@ const login = async (req, res) => {
             email: userData.email
         }
         if (!isMatch) {
-            return sendResponse(res, 401, "Invalid password, Please check the password and try again")
+            return sendResponse(res, process.env.STATUS_401, "Invalid password, Please check the password and try again")
         }
         const token = await jwtTokenGeneration(jwtData)
-        sendResponse(res, 200, {token})
+        sendResponse(res, process.env.STATUS_200, {token})
     } catch (err) {
         console.log("Error at login fucntion", err)
-        sendResponse(res, 400, err.message)
+        sendResponse(res, process.env.STATUS_400, err.message)
     }
 }
 

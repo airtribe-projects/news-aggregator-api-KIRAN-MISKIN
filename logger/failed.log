@@ -10,3 +10,17 @@
 2025-08-20 14:01:34 [WARN]: ⚠️ POST /users/login | Status: 401 | 55ms
 2025-08-20 14:01:34 [WARN]: ⚠️ GET /users/preferences | Status: 401 | 0ms
 2025-08-20 14:01:36 [WARN]: ⚠️ GET /news | Status: 401 | 1ms
+2025-08-25 11:54:04 [WARN]: ⚠️ POST /users/login | Status: 401 | 56ms
+2025-08-25 11:55:30 [WARN]: ⚠️ POST /users/login | Status: 401 | 57ms
+2025-08-25 12:03:59 [WARN]: ⚠️ POST /users/signup | Status: 400 | 6ms
+2025-08-25 12:03:59 [WARN]: ⚠️ POST /users/login | Status: 401 | 55ms
+2025-08-25 12:03:59 [ERROR]: ❌ GET /users/preferences | Status: 500 | 7ms
+2025-08-25 12:04:01 [ERROR]: ❌ GET /news | Status: 500 | 3ms
+2025-08-25 12:07:18 [WARN]: ⚠️ POST /users/signup | Status: 400 | 6ms
+2025-08-25 12:07:19 [WARN]: ⚠️ POST /users/login | Status: 400 | 57ms
+2025-08-25 12:07:19 [WARN]: ⚠️ GET /users/preferences | Status: 401 | 1ms
+2025-08-25 12:07:21 [WARN]: ⚠️ GET /news | Status: 401 | 2ms
+2025-08-25 12:08:38 [WARN]: ⚠️ POST /users/signup | Status: 400 | 6ms
+2025-08-25 12:08:38 [WARN]: ⚠️ POST /users/login | Status: 401 | 54ms
+2025-08-25 12:08:38 [WARN]: ⚠️ GET /users/preferences | Status: 401 | 0ms
+2025-08-25 12:08:40 [WARN]: ⚠️ GET /news | Status: 401 | 2ms

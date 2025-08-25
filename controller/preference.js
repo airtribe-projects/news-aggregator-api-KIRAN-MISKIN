@@ -8,10 +8,10 @@ const getPreference = async (req, res) => {
             where: { email: req.user.email },
             select: { preferences: true }
         })
-        sendResponse(res, 200, { preferences: user.preferences })
+        sendResponse(res, process.env.STATUS_200, { preferences: user.preferences })
     } catch (err) {
         console.log("Error at getPreference at preference function: ", err)
-        sendResponse(res, 400, err.message)
+        sendResponse(res, process.env.STATUS_400, err.message)
     }
 }
 
@@ -19,7 +19,7 @@ const putPreference = async (req, res) => {
     try {
         const { preferences } = req.body;
         if (!preferences || (!Array.isArray(preferences) && typeof preferences !== 'string')) {
-            return sendResponse(res, 400, 'Preferences should be string or array.')
+            return sendResponse(res, process.env.STATUS_400, 'Preferences should be string or array.')
         }
         let latestPreferences;
 
@@ -42,10 +42,10 @@ const putPreference = async (req, res) => {
             message: "Preferences inserted successfully",
             preferences: updatedUser.preferences
         }
-        sendResponse(res, 200, result)
+        sendResponse(res, process.env.STATUS_200, result)
     } catch (err) {
         console.log("Error at putPreference at preference function: ", err)
-        sendResponse(res, 400, err.message)
+        sendResponse(res, process.env.STATUS_400, err.message)
     }
 };
 

@@ -31,10 +31,10 @@ const news = async (req, res) => {
       }
     })
     const result = { news: formattedNews }
-    sendResponse(res, 200, result)
+    sendResponse(res, process.env.STATUS_200, result)
   } catch (err) {
     console.log("Error At news.js: ", err)
-    sendResponse(res, 400, "News API Error. Please try again after some time")
+    sendResponse(res, process.env.STATUS_400, "News API Error. Please try again after some time")
   }
 }
 
@@ -42,10 +42,10 @@ const newsMarkRead = async (req, res) => {
   try {
     const { id } = req.params
     const result = await checkNewsIdfn(id, req.user, "read")
-    return sendResponse(res, 200, result)
+    return sendResponse(res, process.env.STATUS_200, result)
   } catch (err) {
     console.log("Error at newsMarkRead at news function", err);
-    sendResponse(res, 400, "News API Error. Please try again after some time")
+    sendResponse(res, process.env.STATUS_400, "News API Error. Please try again after some time")
   }
 }
 
@@ -53,21 +53,21 @@ const newsMarkFavorite = async (req, res) => {
   try {
     const { id } = req.params
     const result = await checkNewsIdfn(id, req.user, "read")
-    return sendResponse(res, 200, result)
+    return sendResponse(res, process.env.STATUS_200, result)
   } catch (err) {
     console.log("Error at newsMarkFavorite at news function", err);
-    sendResponse(res, 400, "News API Error. Please try again after some time")
+    sendResponse(res, process.env.STATUS_400, "News API Error. Please try again after some time")
   }
 }
 
 const newsGetRead = async (req, res) => {
   try {
     if (Object.keys(req.body).length > 0) {
-      return sendResponse(res, 400, "Get Request doesn't accept any body")
+      return sendResponse(res, process.env.STATUS_400, "Get Request doesn't accept any body")
     }
 
     if (Object.keys(req.query).length > 0) {
-      return sendResponse(res, 400, "Get Request doesn't accept any Query Parameters")
+      return sendResponse(res, process.env.STATUS_400, "Get Request doesn't accept any Query Parameters")
     }
 
     let email = req.user.email
@@ -76,7 +76,7 @@ const newsGetRead = async (req, res) => {
 
     const readNews = allNewsItems.filter(items=>items.read !== null)
     if(readNews.length === 0){
-      return sendResponse(res,404,"No Data Found")
+      return sendResponse(res,process.env.STATUS_404,"No Data Found")
     }
 
     let result = readNews.filter((items) => {
@@ -85,7 +85,7 @@ const newsGetRead = async (req, res) => {
       } 
     })
     if(result.length === 0){
-      return sendResponse(res,404, "No Data Found")
+      return sendResponse(res,process.env.STATUS_404, "No Data Found")
     }
     result = result.map(x => {
       return {
@@ -96,21 +96,21 @@ const newsGetRead = async (req, res) => {
       }
     })
 
-    sendResponse(res, 200, result)
+    sendResponse(res, process.env.STATUS_200, result)
   } catch (err) {
     console.log("Error at newsGetRead at news function", err);
-    sendResponse(res, 400, "News API Error. Please try again after some time")
+    sendResponse(res, process.env.STATUS_400, "News API Error. Please try again after some time")
   }
 }
 
 const newsGetFavorite = async (req, res) => {
   try {
     if (Object.keys(req.body).length > 0) {
-      return sendResponse(res, 400, "Get Request doesn't accept any body")
+      return sendResponse(res, process.env.STATUS_400, "Get Request doesn't accept any body")
     }
 
     if (Object.keys(req.query).length > 0) {
-      return sendResponse(res, 400, "Get Request doesn't accept any Query Parameters")
+      return sendResponse(res, process.env.STATUS_400, "Get Request doesn't accept any Query Parameters")
     }
 
     let email = req.user.email
@@ -118,7 +118,7 @@ const newsGetFavorite = async (req, res) => {
     const allNewsItems = await prisma.news.findMany({})
     const readNews = allNewsItems.filter(items=>items.favorite !== null)
     if(readNews.length === 0){
-      return sendResponse(res,404,"No Data Found")
+      return sendResponse(res,process.env.STATUS_404,"No Data Found")
     }
 
     let result = readNews.filter((items) => {
@@ -127,7 +127,7 @@ const newsGetFavorite = async (req, res) => {
       } 
     })
     if(result.length === 0){
-      return sendResponse(res,404, "No Data Found")
+      return sendResponse(res,process.env.STATUS_404, "No Data Found")
     }
     result = result.map(x => {
       return {
@@ -138,10 +138,10 @@ const newsGetFavorite = async (req, res) => {
       }
     })
 
-    sendResponse(res, 200, result)
+    sendResponse(res, process.env.STATUS_200, result)
   } catch (err) {
     console.log("Error at newsGetFavorite at news function", err);
-    sendResponse(res, 400, "News API Error. Please try again after some time")
+    sendResponse(res, process.env.STATUS_400, "News API Error. Please try again after some time")
   }
 }
 
@@ -149,7 +149,7 @@ const newSearch = async (req, res) => {
   try {
     const { keyword} = req.params
      if(keyword === null || keyword === undefined){
-      return sendResponse(res,400, "Invalid data sent")
+      return sendResponse(res,process.env.STATUS_400, "Invalid data sent")
      }
 
      const API_KEY = process.env.API_TOKEN
@@ -171,11 +171,11 @@ const newSearch = async (req, res) => {
       }
     })
     const result = { news }
-    sendResponse(res, 200, result)
+    sendResponse(res, process.env.STATUS_200, result)
 
   } catch (err) {
     console.log("Error at newSearch at news function", err);
-    sendResponse(res, 400, "News API Error. Please try again after some time")
+    sendResponse(res, process.env.STATUS_400, "News API Error. Please try again after some time")
   }
 }
 

@@ -26,10 +26,10 @@ const registerUser = async (req, res) => {
         preferences: preferences && preferences.length > 0 ? preferences : undefined
       }
     });
-    sendResponse(res,200,"Successfully Registered")
+    sendResponse(res,process.env.STATUS_200,"Successfully Registered")
   } catch (err) {
     console.error("Error at registerUser:", err);
-    sendResponse(res,400,err.message)
+    sendResponse(res,process.env.STATUS_400,err.message)
   }
 };
 

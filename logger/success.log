@@ -64,3 +64,71 @@
 2025-08-20 14:01:36 [INFO]: ✅ GET /news | Status: 200 | 2005ms
 2025-08-20 14:01:36 [INFO]: Incoming Request: GET /news
 2025-08-20 14:01:36 [WARN]: ⚠️ GET /news | Status: 401 | 1ms
+2025-08-25 11:53:55 [INFO]: Incoming Request: POST /users/login
+2025-08-25 11:53:55 [INFO]: ✅ POST /users/login | Status: 200 | 110ms
+2025-08-25 11:54:04 [INFO]: Incoming Request: POST /users/login
+2025-08-25 11:54:04 [WARN]: ⚠️ POST /users/login | Status: 401 | 56ms
+2025-08-25 11:54:14 [INFO]: Incoming Request: POST /users/login
+2025-08-25 11:54:15 [INFO]: ✅ POST /users/login | Status: 200 | 70ms
+2025-08-25 11:55:30 [INFO]: Incoming Request: POST /users/login
+2025-08-25 11:55:30 [WARN]: ⚠️ POST /users/login | Status: 401 | 57ms
+2025-08-25 12:03:58 [INFO]: Incoming Request: POST /users/signup
+2025-08-25 12:03:58 [INFO]: ✅ POST /users/signup | Status: 200 | 85ms
+2025-08-25 12:03:58 [INFO]: Incoming Request: POST /users/signup
+2025-08-25 12:03:59 [WARN]: ⚠️ POST /users/signup | Status: 400 | 6ms
+2025-08-25 12:03:59 [INFO]: Incoming Request: POST /users/login
+2025-08-25 12:03:59 [INFO]: ✅ POST /users/login | Status: 200 | 57ms
+2025-08-25 12:03:59 [INFO]: Incoming Request: POST /users/login
+2025-08-25 12:03:59 [WARN]: ⚠️ POST /users/login | Status: 401 | 55ms
+2025-08-25 12:03:59 [INFO]: Incoming Request: GET /users/preferences
+2025-08-25 12:03:59 [INFO]: ✅ GET /users/preferences | Status: 200 | 5ms
+2025-08-25 12:03:59 [INFO]: Incoming Request: GET /users/preferences
+2025-08-25 12:03:59 [ERROR]: ❌ GET /users/preferences | Status: 500 | 7ms
+2025-08-25 12:03:59 [INFO]: Incoming Request: PUT /users/preferences
+2025-08-25 12:03:59 [INFO]: ✅ PUT /users/preferences | Status: 200 | 13ms
+2025-08-25 12:03:59 [INFO]: Incoming Request: GET /users/preferences
+2025-08-25 12:03:59 [INFO]: ✅ GET /users/preferences | Status: 200 | 2ms
+2025-08-25 12:03:59 [INFO]: Incoming Request: GET /news
+2025-08-25 12:04:01 [INFO]: ✅ GET /news | Status: 200 | 2173ms
+2025-08-25 12:04:01 [INFO]: Incoming Request: GET /news
+2025-08-25 12:04:01 [ERROR]: ❌ GET /news | Status: 500 | 3ms
+2025-08-25 12:07:18 [INFO]: Incoming Request: POST /users/signup
+2025-08-25 12:07:18 [INFO]: ✅ POST /users/signup | Status: 200 | 83ms
+2025-08-25 12:07:18 [INFO]: Incoming Request: POST /users/signup
+2025-08-25 12:07:18 [WARN]: ⚠️ POST /users/signup | Status: 400 | 6ms
+2025-08-25 12:07:18 [INFO]: Incoming Request: POST /users/login
+2025-08-25 12:07:19 [INFO]: ✅ POST /users/login | Status: 200 | 57ms
+2025-08-25 12:07:19 [INFO]: Incoming Request: POST /users/login
+2025-08-25 12:07:19 [WARN]: ⚠️ POST /users/login | Status: 400 | 57ms
+2025-08-25 12:07:19 [INFO]: Incoming Request: GET /users/preferences
+2025-08-25 12:07:19 [INFO]: ✅ GET /users/preferences | Status: 200 | 5ms
+2025-08-25 12:07:19 [INFO]: Incoming Request: GET /users/preferences
+2025-08-25 12:07:19 [WARN]: ⚠️ GET /users/preferences | Status: 401 | 1ms
+2025-08-25 12:07:19 [INFO]: Incoming Request: PUT /users/preferences
+2025-08-25 12:07:19 [INFO]: ✅ PUT /users/preferences | Status: 200 | 8ms
+2025-08-25 12:07:19 [INFO]: Incoming Request: GET /users/preferences
+2025-08-25 12:07:19 [INFO]: ✅ GET /users/preferences | Status: 200 | 2ms
+2025-08-25 12:07:19 [INFO]: Incoming Request: GET /news
+2025-08-25 12:07:21 [INFO]: ✅ GET /news | Status: 200 | 2126ms
+2025-08-25 12:07:21 [INFO]: Incoming Request: GET /news
+2025-08-25 12:07:21 [WARN]: ⚠️ GET /news | Status: 401 | 2ms
+2025-08-25 12:08:38 [INFO]: Incoming Request: POST /users/signup
+2025-08-25 12:08:38 [INFO]: ✅ POST /users/signup | Status: 200 | 73ms
+2025-08-25 12:08:38 [INFO]: Incoming Request: POST /users/signup
+2025-08-25 12:08:38 [WARN]: ⚠️ POST /users/signup | Status: 400 | 6ms
+2025-08-25 12:08:38 [INFO]: Incoming Request: POST /users/login
+2025-08-25 12:08:38 [INFO]: ✅ POST /users/login | Status: 200 | 56ms
+2025-08-25 12:08:38 [INFO]: Incoming Request: POST /users/login
+2025-08-25 12:08:38 [WARN]: ⚠️ POST /users/login | Status: 401 | 54ms
+2025-08-25 12:08:38 [INFO]: Incoming Request: GET /users/preferences
+2025-08-25 12:08:38 [INFO]: ✅ GET /users/preferences | Status: 200 | 5ms
+2025-08-25 12:08:38 [INFO]: Incoming Request: GET /users/preferences
+2025-08-25 12:08:38 [WARN]: ⚠️ GET /users/preferences | Status: 401 | 0ms
+2025-08-25 12:08:38 [INFO]: Incoming Request: PUT /users/preferences
+2025-08-25 12:08:38 [INFO]: ✅ PUT /users/preferences | Status: 200 | 7ms
+2025-08-25 12:08:38 [INFO]: Incoming Request: GET /users/preferences
+2025-08-25 12:08:38 [INFO]: ✅ GET /users/preferences | Status: 200 | 3ms
+2025-08-25 12:08:38 [INFO]: Incoming Request: GET /news
+2025-08-25 12:08:40 [INFO]: ✅ GET /news | Status: 200 | 2305ms
+2025-08-25 12:08:40 [INFO]: Incoming Request: GET /news
+2025-08-25 12:08:40 [WARN]: ⚠️ GET /news | Status: 401 | 2ms
