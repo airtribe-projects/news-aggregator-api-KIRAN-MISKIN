@@ -1,16 +1,26 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const dotenv = require('dotenv')
+dotenv.config();
+const usersRouter = require('./router/usersRouter');
+const newsRouter = require('./router/newsRouter')
+const requestLogger = require('./logger/requestLogger')
+const {clearCache} = require('./cache/cache')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(port, (err) => {
-    if (err) {
-        return console.log('Something bad happened', err);
-    }
-    console.log(`Server is listening on ${port}`);
-});
+// Use logger middleware for all routes
+app.use(requestLogger);
+
+app.use('/users', usersRouter)
+app.use('/news', newsRouter)
+
+// every 15 minutes clear cache so it gets refreshed
+setInterval(() => {
+  console.log("♻ Clearing cache to refresh data...");
+  clearCache();
+}, 15 * 60 * 1000);
 
 
 
